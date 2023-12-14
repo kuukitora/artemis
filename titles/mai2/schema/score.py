@@ -146,6 +146,7 @@ playlog = Table(
     Column("extNum1", Integer),
     Column("extNum2", Integer),
     Column("extNum4", Integer, server_default="0"),
+    Column("extBool1", Boolean), # new with bud
     Column("trialPlayAchievement", Integer),
     mysql_charset="utf8mb4",
 )

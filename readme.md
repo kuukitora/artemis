@@ -11,7 +11,7 @@ Games listed below have been tested and confirmed working. Only game versions ol
     + All versions + omnimix
 
 + maimai DX
-    + All versions up to FESTiVAL PLUS
+    + All versions up to BUDDiES
 
 + Hatsune Miku: Project DIVA Arcade
     + All versions
