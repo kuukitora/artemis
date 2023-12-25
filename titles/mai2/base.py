@@ -448,25 +448,32 @@ class Mai2Base:
             "userCardList": card_list[start_idx:end_idx],
         }
 
+    # 原功能备份
+    # def handle_get_user_charge_api_request(self, data: Dict) -> Dict:
+    #     user_charges = self.data.item.get_charges(data["userId"])
+    #     if user_charges is None:
+    #         return {"userId": data["userId"], "length": 0, "userChargeList": []}
+    #
+    #     user_charge_list = []
+    #     for charge in user_charges:
+    #         tmp = charge._asdict()
+    #         tmp.pop("id")
+    #         tmp.pop("user")
+    #
+    #         user_charge_list.append(tmp)
+    #
+    #     return {
+    #         "userId": data["userId"],
+    #         "length": len(user_charge_list),
+    #         "userChargeList": user_charge_list,
+    #     }
+
+    # 默认发6倍券
     def handle_get_user_charge_api_request(self, data: Dict) -> Dict:
         user_charges = self.data.item.get_charges(data["userId"])
-        if user_charges is None:
-            return {"userId": data["userId"], "length": 0, "userChargeList": []}
-
-        user_charge_list = []
-        for charge in user_charges:
-            tmp = charge._asdict()
-            tmp.pop("id")
-            tmp.pop("user")
-
-            user_charge_list.append(tmp)
-
-        return {
-            "userId": data["userId"],
-            "length": len(user_charge_list),
-            "userChargeList": user_charge_list,
-        }
-
+        return {"userId": user_charges["userId"], "length": 1, "userChargeList": [
+            {'chargeId': 6, 'stock': 1, 'purchaseDate': '2023-11-02 11:34:05', 'validDate': '2024-01-31 04:00:00',
+             'extNum1': 0}]}
     def handle_get_user_present_api_request(self, data: Dict) -> Dict:
         return { "userId": data.get("userId", 0), "length": 0, "userPresentList": []}
     
